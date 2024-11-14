@@ -15,13 +15,14 @@ void main() {
 class MyApp extends StatelessWidget {
   final EmployeeUseCase employeeUseCase;
 
-  MyApp(this.employeeUseCase);
+  const MyApp(this.employeeUseCase, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => EmployeeCubit(employeeUseCase),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Employee Manager',
         theme: ThemeData(primarySwatch: Colors.blue),
         home: HomePage(),

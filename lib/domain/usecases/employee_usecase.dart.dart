@@ -37,6 +37,14 @@ class EmployeeUseCase {
       healthSpecialistCert: '',
       cprCourse: '',
       leaveRequest: '',
+      businessCardExpiration: '',
+      nationalIdExpiration: '',
+      contractExpiration: '',
+      qualificationExpiration: '',
+      specializationExpiration: '',
+      cprCourseExpiration: '',
+      leaveRequestExpiration: '',
+      returnFromLeaveExpiration: '',
     ));
   }
 
@@ -55,6 +63,14 @@ class EmployeeUseCase {
       healthSpecialistCert: '',
       cprCourse: '',
       leaveRequest: '',
+      businessCardExpiration: '',
+      nationalIdExpiration: '',
+      contractExpiration: '',
+      qualificationExpiration: '',
+      specializationExpiration: '',
+      cprCourseExpiration: '',
+      leaveRequestExpiration: '',
+      returnFromLeaveExpiration: '',
     ));
   }
 

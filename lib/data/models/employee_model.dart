@@ -26,7 +26,6 @@ class EmployeeModel {
     required this.healthSpecialistCert,
     required this.cprCourse,
     required this.leaveRequest,
-    required this.returnFromLeave,
+    required this.returnFromLeave, required String businessCardExpiration, required String nationalIdExpiration, required String contractExpiration, required String qualificationExpiration, required String specializationExpiration, required String cprCourseExpiration, required String leaveRequestExpiration, required String returnFromLeaveExpiration,
   });
 }
-  
