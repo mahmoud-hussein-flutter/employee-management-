@@ -25,7 +25,6 @@ class EmployeeUseCase {
   Future<void> addEmployee(Employee employee) {
     // Converts entity to model before adding
     return repository.addEmployee(EmployeeModel(
-      id: employee.id,
       name: employee.name,
       position: employee.position,
       department: employee.department,
@@ -37,21 +36,17 @@ class EmployeeUseCase {
       healthSpecialistCert: '',
       cprCourse: '',
       leaveRequest: '',
-      businessCardExpiration: '',
-      nationalIdExpiration: '',
-      contractExpiration: '',
-      qualificationExpiration: '',
-      specializationExpiration: '',
-      cprCourseExpiration: '',
-      leaveRequestExpiration: '',
-      returnFromLeaveExpiration: '',
+     
+      businessCardExpirationDate: '', nationalIdExpirationDate: '', contractExpirationDate: '', qualificationsExpirationDate: '',  
+ 
+      healthSpecialistCertExpirationDate: '',
+      cprCourseExpirationDate: '', leaveRequestExpirationDate: '', returnFromLeaveExpirationDate: '', id: 1,
     ));
   }
 
   Future<void> updateEmployee(Employee updatedEmployee) {
     // Converts entity to model before updating
     return repository.updateEmployee(EmployeeModel(
-      id: updatedEmployee.id,
       name: updatedEmployee.name,
       position: updatedEmployee.position,
       department: updatedEmployee.department,
@@ -63,14 +58,13 @@ class EmployeeUseCase {
       healthSpecialistCert: '',
       cprCourse: '',
       leaveRequest: '',
-      businessCardExpiration: '',
-      nationalIdExpiration: '',
-      contractExpiration: '',
-      qualificationExpiration: '',
-      specializationExpiration: '',
-      cprCourseExpiration: '',
-      leaveRequestExpiration: '',
-      returnFromLeaveExpiration: '',
+     
+      businessCardExpirationDate: '',
+      nationalIdExpirationDate: '',
+      contractExpirationDate: '',
+      qualificationsExpirationDate: '',
+      healthSpecialistCertExpirationDate: '',
+      cprCourseExpirationDate: '', leaveRequestExpirationDate: '', returnFromLeaveExpirationDate: '', id: 2,
     ));
   }
 

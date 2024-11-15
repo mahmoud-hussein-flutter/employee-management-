@@ -16,7 +16,7 @@ class Employee extends Equatable {
   final String? leaveRequestPath;
   final String? postLeavePath;
 
-  Employee({
+  const Employee({
     required this.id,
     required this.name,
     required this.position,

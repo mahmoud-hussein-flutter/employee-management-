@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 
 class AddEmployeePage extends StatefulWidget {
+  const AddEmployeePage({super.key});
+
   @override
   _AddEmployeePageState createState() => _AddEmployeePageState();
 }
@@ -16,21 +18,32 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
   final TextEditingController _businessCardController = TextEditingController();
   final TextEditingController _nationalIdController = TextEditingController();
   final TextEditingController _contractController = TextEditingController();
-  final TextEditingController _qualificationController = TextEditingController();
-  final TextEditingController _specializationController = TextEditingController();
+  final TextEditingController _qualificationController =
+      TextEditingController();
+  final TextEditingController _specializationController =
+      TextEditingController();
   final TextEditingController _cprCourseController = TextEditingController();
   final TextEditingController _leaveRequestController = TextEditingController();
-  final TextEditingController _returnFromLeaveController = TextEditingController();
+  final TextEditingController _returnFromLeaveController =
+      TextEditingController();
 
   // Expiration date controllers
-  final TextEditingController _businessCardExpirationController = TextEditingController();
-  final TextEditingController _nationalIdExpirationController = TextEditingController();
-  final TextEditingController _contractExpirationController = TextEditingController();
-  final TextEditingController _qualificationExpirationController = TextEditingController();
-  final TextEditingController _specializationExpirationController = TextEditingController();
-  final TextEditingController _cprCourseExpirationController = TextEditingController();
-  final TextEditingController _leaveRequestExpirationController = TextEditingController();
-  final TextEditingController _returnFromLeaveExpirationController = TextEditingController();
+  final TextEditingController _businessCardExpirationController =
+      TextEditingController();
+  final TextEditingController _nationalIdExpirationController =
+      TextEditingController();
+  final TextEditingController _contractExpirationController =
+      TextEditingController();
+  final TextEditingController _qualificationExpirationController =
+      TextEditingController();
+  final TextEditingController _specializationExpirationController =
+      TextEditingController();
+  final TextEditingController _cprCourseExpirationController =
+      TextEditingController();
+  final TextEditingController _leaveRequestExpirationController =
+      TextEditingController();
+  final TextEditingController _returnFromLeaveExpirationController =
+      TextEditingController();
 
   // Function to pick a file
   Future<void> _pickFile(TextEditingController controller) async {
@@ -43,7 +56,8 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
   }
 
   // Builds a text field with icons and validation
-  Widget _buildTextField(String label, IconData prefixIcon, TextEditingController controller) {
+  Widget _buildTextField(
+      String label, IconData prefixIcon, TextEditingController controller) {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
@@ -52,7 +66,7 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
         filled: true,
         fillColor: Colors.grey[100],
-        labelStyle: TextStyle(color: Colors.blueGrey),
+        labelStyle: const TextStyle(color: Colors.blueGrey),
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
@@ -64,7 +78,11 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
   }
 
   // Builds a file picker field with an expiration date field
-  Widget _buildFilePicker(String label, IconData prefixIcon, TextEditingController controller, TextEditingController expirationController) {
+  Widget _buildFilePicker(
+      String label,
+      IconData prefixIcon,
+      TextEditingController controller,
+      TextEditingController expirationController) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -76,11 +94,12 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
               decoration: InputDecoration(
                 labelText: label,
                 prefixIcon: Icon(prefixIcon, color: Colors.blueAccent),
-                suffixIcon: Icon(Icons.attach_file, color: Colors.blueAccent),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                suffixIcon: const Icon(Icons.attach_file, color: Colors.blueAccent),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                 filled: true,
                 fillColor: Colors.grey[100],
-                labelStyle: TextStyle(color: Colors.blueGrey),
+                labelStyle: const TextStyle(color: Colors.blueGrey),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -91,16 +110,16 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
             ),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         TextFormField(
           controller: expirationController,
           decoration: InputDecoration(
             labelText: '$label Expiration Date',
-            prefixIcon: Icon(Icons.calendar_today, color: Colors.blueAccent),
+            prefixIcon: const Icon(Icons.calendar_today, color: Colors.blueAccent),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
             filled: true,
             fillColor: Colors.grey[100],
-            labelStyle: TextStyle(color: Colors.blueGrey),
+            labelStyle: const TextStyle(color: Colors.blueGrey),
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {
@@ -116,11 +135,12 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
               lastDate: DateTime(2100),
             );
             if (date != null) {
-              expirationController.text = "${date.day}/${date.month}/${date.year}";
+              expirationController.text =
+                  "${date.day}/${date.month}/${date.year}";
             }
           },
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
       ],
     );
   }
@@ -129,9 +149,10 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Add Employee',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: Colors.white),
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 22, color: Colors.white),
         ),
         backgroundColor: Colors.blueGrey,
       ),
@@ -143,22 +164,40 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
             child: Column(
               children: [
                 _buildTextField("Employee Name", Icons.person, _nameController),
-                SizedBox(height: 15),
+                const SizedBox(height: 20),
                 _buildTextField("Job Title", Icons.work, _positionController),
-                SizedBox(height: 15),
-                _buildTextField("Department", Icons.business, _departmentController),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
+                _buildTextField(
+                    "Department", Icons.business, _departmentController),
+                const SizedBox(height: 25),
 
                 // Document Upload Fields with Expiration Dates
-                _buildFilePicker("Business Card Image", Icons.business, _businessCardController, _businessCardExpirationController),
-                _buildFilePicker("National ID Image", Icons.card_membership, _nationalIdController, _nationalIdExpirationController),
-                _buildFilePicker("Signed Contract", Icons.description, _contractController, _contractExpirationController),
-                _buildFilePicker("Qualifications", Icons.school, _qualificationController, _qualificationExpirationController),
-                _buildFilePicker("Health Specialist Certification", Icons.local_hospital, _specializationController, _specializationExpirationController),
-                _buildFilePicker("CPR Course", Icons.fitness_center, _cprCourseController, _cprCourseExpirationController),
-                _buildFilePicker("Leave Request", Icons.request_page, _leaveRequestController, _leaveRequestExpirationController),
-                _buildFilePicker("Return from Leave", Icons.calendar_today, _returnFromLeaveController, _returnFromLeaveExpirationController),
-                SizedBox(height: 20),
+                _buildFilePicker("Business Card Image", Icons.business,
+                    _businessCardController, _businessCardExpirationController),
+                _buildFilePicker("National ID Image", Icons.card_membership,
+                    _nationalIdController, _nationalIdExpirationController),
+                _buildFilePicker("Signed Contract", Icons.description,
+                    _contractController, _contractExpirationController),
+                _buildFilePicker(
+                    "Qualifications",
+                    Icons.school,
+                    _qualificationController,
+                    _qualificationExpirationController),
+                _buildFilePicker(
+                    "Health Specialist Certification",
+                    Icons.local_hospital,
+                    _specializationController,
+                    _specializationExpirationController),
+                _buildFilePicker("CPR Course", Icons.fitness_center,
+                    _cprCourseController, _cprCourseExpirationController),
+                _buildFilePicker("Leave Request", Icons.request_page,
+                    _leaveRequestController, _leaveRequestExpirationController),
+                _buildFilePicker(
+                    "Return from Leave",
+                    Icons.calendar_today,
+                    _returnFromLeaveController,
+                    _returnFromLeaveExpirationController),
+                const SizedBox(height: 25),
 
                 // Submit Button with Password Prompt
                 ElevatedButton(
@@ -169,12 +208,16 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueGrey,
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 55),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Add Employee',
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
                   ),
                 ),
               ],
@@ -192,14 +235,15 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Enter Password"),
+          title: const Text("Enter Password"),
           content: TextFormField(
             controller: passwordController,
             obscureText: true,
             decoration: InputDecoration(
               labelText: "Password",
-              prefixIcon: Icon(Icons.lock, color: Colors.blueGrey),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              prefixIcon: const Icon(Icons.lock, color: Colors.blueGrey),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               filled: true,
               fillColor: Colors.grey[100],
             ),
@@ -211,15 +255,15 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
                   // Proceed to add the employee
                   Navigator.of(context).pop();
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Employee added successfully!")),
+                    const SnackBar(content: Text("Employee added successfully!")),
                   );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Incorrect password. Try again.")),
+                    const SnackBar(content: Text("Incorrect password. Try again.")),
                   );
                 }
               },
-              child: Text("Submit", style: TextStyle(color: Colors.blueGrey)),
+              child: const Text("Submit", style: TextStyle(color: Colors.blueGrey)),
             ),
           ],
         );

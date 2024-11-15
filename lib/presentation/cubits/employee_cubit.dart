@@ -2,7 +2,7 @@
 
 import 'package:employee/data/models/employee_model.dart';
 import 'package:employee/domain/entities/employee.dart';
-import 'package:employee/domain/usecases/employee_usecase.dart.dart';
+import 'package:employee/domain/usecases/employee_usecase.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

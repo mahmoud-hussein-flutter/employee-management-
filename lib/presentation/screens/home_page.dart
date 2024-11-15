@@ -1,9 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:employee/presentation/screens/add_employee_page.dart';
 import 'package:flutter/material.dart';
 import 'package:employee/data/models/employee_model.dart';
 import 'package:employee/presentation/screens/detail_page.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -24,14 +28,15 @@ class _HomePageState extends State<HomePage> {
       cprCourse: 'link_to_cpr',
       leaveRequest: 'link_to_leave_request',
       returnFromLeave: 'link_to_return_from_leave',
-      businessCardExpiration: '',
-      nationalIdExpiration: '',
-      contractExpiration: '',
-      qualificationExpiration: '',
-      specializationExpiration: '',
-      cprCourseExpiration: '',
-      leaveRequestExpiration: '',
-      returnFromLeaveExpiration: '',
+     
+      businessCardExpirationDate: '',
+      nationalIdExpirationDate: '',
+      contractExpirationDate: '',
+      qualificationsExpirationDate: '',
+      healthSpecialistCertExpirationDate: '',
+      cprCourseExpirationDate: '',
+      leaveRequestExpirationDate: '',
+      returnFromLeaveExpirationDate: '',
     ),
     EmployeeModel(
       id: 2,
@@ -46,14 +51,15 @@ class _HomePageState extends State<HomePage> {
       cprCourse: 'link_to_cpr',
       leaveRequest: 'link_to_leave_request',
       returnFromLeave: 'link_to_return_from_leave',
-      businessCardExpiration: '',
-      nationalIdExpiration: '',
-      contractExpiration: '',
-      qualificationExpiration: '',
-      specializationExpiration: '',
-      cprCourseExpiration: '',
-      leaveRequestExpiration: '',
-      returnFromLeaveExpiration: '',
+     
+      businessCardExpirationDate: '',
+      nationalIdExpirationDate: '',
+      contractExpirationDate: '',
+      qualificationsExpirationDate: '',
+      healthSpecialistCertExpirationDate: '',
+      cprCourseExpirationDate: '',
+      leaveRequestExpirationDate: '',
+      returnFromLeaveExpirationDate: '',
     ),
   ];
 
@@ -91,7 +97,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Employee Manager',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
         ),
@@ -106,7 +112,7 @@ class _HomePageState extends State<HomePage> {
               controller: _searchController,
               decoration: InputDecoration(
                 labelText: 'Search by Name',
-                prefixIcon: Icon(Icons.search, color: Colors.blueGrey),
+                prefixIcon: const Icon(Icons.search, color: Colors.blueGrey),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -114,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                 fillColor: Colors.grey[100],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // List of Employees
             Expanded(
@@ -124,31 +130,34 @@ class _HomePageState extends State<HomePage> {
                   final employee = filteredEmployees[index];
                   return Card(
                     elevation: 5,
-                    margin: EdgeInsets.symmetric(vertical: 10),
+                    margin: const EdgeInsets.symmetric(vertical: 10),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: ListTile(
-                      contentPadding: EdgeInsets.all(16),
-                      leading: Icon(
+                      contentPadding: const EdgeInsets.all(16),
+                      leading: const Icon(
                         Icons.account_circle,
                         size: 50,
                         color: Colors.blueGrey,
                       ),
                       title: Text(
                         employee.name,
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       subtitle: Text(
                         '${employee.position}\n${employee.department}',
-                        style: TextStyle(color: Colors.grey),
+                        style: const TextStyle(color: Colors.grey),
                       ),
-                      trailing: Icon(Icons.arrow_forward_ios, color: Colors.blueGrey),
+                      trailing:
+                          const Icon(Icons.arrow_forward_ios, color: Colors.blueGrey),
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetailPage(employee: employee),
+                            builder: (context) =>
+                                DetailPage(employee: employee),
                           ),
                         );
                       },
@@ -168,7 +177,7 @@ class _HomePageState extends State<HomePage> {
           );
         },
         backgroundColor: Colors.blueGrey,
-        child: Icon(Icons.add, color: Colors.white),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }
